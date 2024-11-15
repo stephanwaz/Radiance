@@ -68,12 +68,12 @@ static oputf_t  oputo, oputd, oputv, oputV, oputl, oputL, oputc, oputp,
 extern void tranotify(OBJECT obj);
 static void tabin(RAY *r);
 static RayReportCall ourtrace;
-static RayReportCall printvals;
+RayReportCall printvals;
 
 static void  putscolor(COLORV *scol);
 
 static oputf_t *ray_out[32], *every_out[32];
-static putf_t *putreal;
+putf_t *putreal;
 
 void
 quit(			/* quit program */
@@ -411,7 +411,7 @@ setrtoutput(const char *outvals)	/* set up output tables, return #comp */
 	return(ncomp);
 }
 
-static int
+int
 printvals(			/* print requested ray values */
 	RAY  *r, void *cd
 )
